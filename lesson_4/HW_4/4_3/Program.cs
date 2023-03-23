@@ -6,6 +6,7 @@
 // 6, 1, 33 -> [6, 1, 33]
 
 
+
 void Print(int[] array)
 {
     int size = array.Length;
@@ -30,5 +31,6 @@ int stop = int.Parse(Console.ReadLine()!);
 
 int[] mass = Mass(num, start, stop);
 Print(mass);
+
 
 
