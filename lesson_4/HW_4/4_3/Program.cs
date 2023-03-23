@@ -3,9 +3,7 @@
 
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 
-// 6, 1, 33 -> [6, 1, 33]
-
-
+// 6, 1, 33 -> [6, 1, 33],
 
 void Print(int[] array)
 {
@@ -31,6 +29,4 @@ int stop = int.Parse(Console.ReadLine()!);
 
 int[] mass = Mass(num, start, stop);
 Print(mass);
-
-
 
