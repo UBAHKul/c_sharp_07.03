@@ -20,12 +20,3 @@ int GenerateNumber()
     int number = new Random().Next(2);
     return number;
 }
-
-void PrintArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]} ");
-    }
-    Console.WriteLine();
-}
