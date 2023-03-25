@@ -1,13 +1,14 @@
 ﻿// Напишите цикл, который принимает на вход два числа
 // (A и B) и возводит число A в натуральную степень B.
 
-// 3, 5 -> 243 (3⁵)
+// 3, 5 -> 243 (3⁵);
 
-// 2, 4 -> 16
+// 2, 4 -> 16;
 
-// A, B A^B
+// A, B A^B;
 // if i <= B
-// {result = A * A  i++}
+// {result = A * A  i++};
+
 
 double PowNum(int a, int b)
 {
@@ -30,3 +31,4 @@ Console.WriteLine("Enter degree of number: ");
 int num_2 = int.Parse(Console.ReadLine()!);
 
 Console.WriteLine(PowNum(num_1, num_2));
+
