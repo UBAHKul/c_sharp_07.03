@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-﻿
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-=======
-﻿// 1. Задайте двумерный массив. Напишите программу,
-//    которая поменяет местами первую и последнюю строку массива.
+﻿// 2. Напишите программу, которая на вход принимает позиции элемента
+//    в двумерном массиве, и возвращает значение этого элемента 
+//    или же указание, что такого элемента нет.
 
 void Print(int[,] arr)
 {
@@ -26,18 +22,19 @@ int[,] MassNums(int row, int column, int from, int to)
 
     for (int i = 0; i < row; i++)
         for (int j = 0; j < column; j++)
-            arr[i, j] = new Random().Next(from, to);
+            arr[i, j] = new Random().Next(from, to + 1);
     return arr;
 }
-void FirstLast(int[,] arr)
+
+string FindElement(int[,] arr, int f, int s)
 {
-    int row_size = arr.GetLength(0);
-    int column_size = arr.GetLength(1);
+    int row = arr.GetLength(0);
+    int column = arr.GetLength(1);
 
-    for (int j = 0; j < column_size; j++)
-        (arr[0, j], arr[row_size - 1, j]) = (arr[row_size - 1, j], arr[0, j]);     
+    if (f > row || f <= 0 || s > column || s <= 0)
+        return $"{f} {s} -> not in the array";
+    return $"arr[{f}, {s}] = {arr[f - 1, s - 1]} -> is in the array";
 }
-
 
 Console.Write("Enter the number of rows: ");
 int row_num = int.Parse(Console.ReadLine()!);
@@ -52,6 +49,11 @@ int stop = int.Parse(Console.ReadLine()!);
 int[,] mass = MassNums(row_num, column_num, start, stop);
 
 Print(mass);
-FirstLast(mass);
-Print(mass);
->>>>>>> 8_lesson
+
+Console.Write("Enter the line position: ");
+int first = int.Parse(Console.ReadLine()!);
+Console.Write("Enter the column position: ");
+int second = int.Parse(Console.ReadLine()!);
+
+string answer = FindElement(mass, first, second);
+Console.WriteLine(answer);

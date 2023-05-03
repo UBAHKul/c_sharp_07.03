@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-﻿
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-=======
-﻿// 1. Задайте двумерный массив. Напишите программу,
-//    которая поменяет местами первую и последнюю строку массива.
+﻿// 2. Задайте двумерный массив. Напишите программу,
+//    которая заменяет строки на столбцы. В случае, если это невозможно,
+//    программа должна вывести сообщение для пользователя.
+
+// https://ru.wikihow.com/%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%86%D1%83
 
 void Print(int[,] arr)
 {
@@ -29,13 +27,22 @@ int[,] MassNums(int row, int column, int from, int to)
             arr[i, j] = new Random().Next(from, to);
     return arr;
 }
-void FirstLast(int[,] arr)
-{
-    int row_size = arr.GetLength(0);
-    int column_size = arr.GetLength(1);
 
-    for (int j = 0; j < column_size; j++)
-        (arr[0, j], arr[row_size - 1, j]) = (arr[row_size - 1, j], arr[0, j]);     
+string MatrixT(int[,] arr)
+{
+    int row = arr.GetLength(0);
+    int column = arr.GetLength(1);
+
+    if (row != column) return "Matrix transposition is not possible";
+
+    for (int i = 1; i < row; i++)
+    {
+        for (int j = 0; j < i; j++)
+            // j = i
+            (arr[i, j], arr[j, i]) = (arr[j, i], arr[i, j]);
+    }
+
+    return "Matrix transposition is possible"; ;
 }
 
 
@@ -52,6 +59,7 @@ int stop = int.Parse(Console.ReadLine()!);
 int[,] mass = MassNums(row_num, column_num, start, stop);
 
 Print(mass);
-FirstLast(mass);
+
+string answer = MatrixT(mass);
+Console.WriteLine(answer);
 Print(mass);
->>>>>>> 8_lesson

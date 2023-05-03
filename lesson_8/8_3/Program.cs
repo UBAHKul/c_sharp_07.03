@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-﻿
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-=======
-﻿// 1. Задайте двумерный массив. Напишите программу,
-//    которая поменяет местами первую и последнюю строку массива.
+﻿// 3. Составить частотный словарь элементов двумерного массива.
+//    Частотный словарь содержит информацию о том, сколько раз 
+//    встречается элемент входных данных. Значения элементов массива 0..9
+//    https://metanit.com/sharp/tutorial/4.9.php
 
 void Print(int[,] arr)
 {
@@ -14,7 +11,7 @@ void Print(int[,] arr)
     for (int i = 0; i < row_size; i++)
     {
         for (int j = 0; j < column_size; j++)
-            Console.Write($" {arr[i, j]} ");
+            Console.Write($" {arr[i, j],3} ");
         Console.WriteLine();
     }
     Console.WriteLine();
@@ -26,16 +23,23 @@ int[,] MassNums(int row, int column, int from, int to)
 
     for (int i = 0; i < row; i++)
         for (int j = 0; j < column; j++)
-            arr[i, j] = new Random().Next(from, to);
+            arr[i, j] = new Random().Next(from, to + 1);
     return arr;
 }
-void FirstLast(int[,] arr)
-{
-    int row_size = arr.GetLength(0);
-    int column_size = arr.GetLength(1);
 
-    for (int j = 0; j < column_size; j++)
-        (arr[0, j], arr[row_size - 1, j]) = (arr[row_size - 1, j], arr[0, j]);     
+int[] FrequencyDict(int[,] arr, int max_num)
+{
+    int[] freq = new int[max_num + 1];
+
+    foreach (int item in arr) freq[item] += 1;
+    return freq;
+}
+
+void PrintMass(int[] arr)
+{
+    for (int i = 0; i < arr.Length; i++)
+        Console.WriteLine($"{i} meets: {arr[i]}");
+    Console.WriteLine();
 }
 
 
@@ -52,6 +56,6 @@ int stop = int.Parse(Console.ReadLine()!);
 int[,] mass = MassNums(row_num, column_num, start, stop);
 
 Print(mass);
-FirstLast(mass);
-Print(mass);
->>>>>>> 8_lesson
+
+int[] new_mass = FrequencyDict(mass, stop);
+PrintMass(new_mass);

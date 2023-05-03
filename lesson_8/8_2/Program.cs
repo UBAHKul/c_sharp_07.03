@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿// 2. Задайте прямоугольный двумерный массив. Напишите программу,
 // которая будет находить строку с наименьшей суммой элементов.
 
@@ -58,3 +59,7 @@ Console.Write("Enter the number of rows: ");
 int row_num = int.Parse(Console.ReadLine()!);
 Console.Write("Enter the number of columns: ");
 int column_num = int.Parse(Console.ReadLine()!);
+=======
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
+>>>>>>> 8_lesson
