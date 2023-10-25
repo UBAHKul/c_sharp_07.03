@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-=======
-﻿// 3. Задайте две матрицы. Напишите программу,
+// 3. Задайте две матрицы. Напишите программу,
 //    которая будет находить произведение двух матриц.
 
 
@@ -62,4 +58,3 @@ Print(arr_2);
 
 int[,] res_matrix = MatrixProduct(arr_1, arr_2);
 Print(res_matrix);
->>>>>>> 8_lesson
